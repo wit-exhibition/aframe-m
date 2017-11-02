@@ -9,9 +9,10 @@
 
     <script src="./lib/aframe-physics-system.min.js"></script>
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.12.4/dist/aframe-extras.min.js"></script>
+    <script src="./lib/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
     <script src="https://unpkg.com/aframe-text-component@^0.4.1/dist/aframe-text-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
   </head>
   <body>
     <a-scene physics="debug: true">
@@ -25,15 +26,21 @@
       <a-box color="#9160ff" class="object" grabbable position="0 2.5 -5" dynamic-body="mass: 2"></a-box>
 
       <a-entity class="object" grabbable io3d-furniture="id:34b6ee73-187f-41a6-83ea-3fa47da384c0" position="2 0 -3" dynamic-body="mass: 2"></a-entity>
+
       <!-- controls -->
       <a-entity progressive-controls="objects: .object"><a-entity>
+
       <!-- environment -->
       <a-entity environment="preset: forest"><a-entity>
+
       <!-- colliders -->
       <a-entity visible="false" id="ground" position="0 -0.5 0" scale="50 1 50" static-body="sphereRadius:1" geometry=""></a-entity>
+
+      <!-- score board -->
+      <a-entity id="scoreboard" position="0 5 -5" text-geometry="value: 000" material="color: red"></a-entity>
     </a-scene>
 
 
-
+    <script src="./app.js"></script>
   </body>
 </html>
