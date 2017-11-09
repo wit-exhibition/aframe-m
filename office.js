@@ -9,7 +9,7 @@ scene.addEventListener('renderstart', function(){
   io3d.scene.getAframeElements('ce14d1f1-cdef-474d-8a84-19157b4c2953')
     .then(function(elements) {
       elements
-      // .filter(function(elem) {return !elem.hasAttribute('camera')})
+      //.filter(function(elem) {return !elem.hasAttribute('camera')})
       .forEach( function(elem) {
         scene.appendChild(elem);
       })
