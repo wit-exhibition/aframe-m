@@ -1,9 +1,20 @@
 console.log("hallo")
 
+const scene = document.querySelector('a-scene');
 const scoreboard = document.getElementById('scoreboard')
 let score = 0
 
-document.querySelector('a-scene').addEventListener('renderstart', function(){
+scene.addEventListener('renderstart', function(){
+
+  io3d.scene.getAframeElements('ce14d1f1-cdef-474d-8a84-19157b4c2953')
+    .then(function(elements) {
+      elements
+      // .filter(function(elem) {return !elem.hasAttribute('camera')})
+      .forEach( function(elem) {
+        scene.appendChild(elem);
+      })
+    })
+
   document.querySelectorAll('a-box').forEach(function (elem) {
     elem.addEventListener('collide', function(evt) {
       const BALL_ID = document.getElementById('ball').body.id
