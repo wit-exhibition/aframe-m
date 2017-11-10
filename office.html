@@ -17,29 +17,34 @@
 
   </head>
   <body>
-    <a-scene physics="debug: true">
+    <a-scene >
       <a-sphere id="ball" class="object" grabbable position="0 2 -4" scale="0.25 0.25 0.25" color="#af9cff" geometry=""  dynamic-body="shape: sphere; mass: 1000; sphereRadius: 0.25"></a-sphere>
 
-      <a-box color="red" class="object" grabbable position="-1 0.5 -5" dynamic-body="mass: 2"></a-box>
-      <a-box color="#ff8027" class="object" grabbable position="0 0.5 -5" dynamic-body="mass: 2"></a-box>
-      <a-box color="yellow" class="object" grabbable position="1 0.5 -5" dynamic-body="mass: 2"></a-box>
-      <a-box color="#81ff27" class="object" grabbable position="-0.6 1.5 -5" dynamic-body="mass: 2"></a-box>
-      <a-box color="#4cc2ff" class="object" grabbable position="0.6 1.5 -5" dynamic-body="mass: 2"></a-box>
-      <a-box color="#9160ff" class="object" grabbable position="0 2.5 -5" dynamic-body="mass: 2"></a-box>
+      <a-box color="red" class="object" grabbable position="4 0.5 -5" dynamic-body="mass: 2"></a-box>
+      <a-box color="#ff8027" class="object" grabbable position="5 0.5 -5" dynamic-body="mass: 2"></a-box>
+      <a-box color="yellow" class="object" grabbable position="6 0.5 -5" dynamic-body="mass: 2"></a-box>
+      <a-box color="#81ff27" class="object" grabbable position="4.4 1.5 -5" dynamic-body="mass: 2"></a-box>
+      <a-box color="#4cc2ff" class="object" grabbable position="5.6 1.5 -5" dynamic-body="mass: 2"></a-box>
+      <a-box color="#9160ff" class="object" grabbable position="5 2.5 -5" dynamic-body="mass: 2"></a-box>
 
-      <a-entity class="object" grabbable io3d-furniture="id:34b6ee73-187f-41a6-83ea-3fa47da384c0" position="2 0 -3" dynamic-body="mass: 2"></a-entity>
+      <a-entity class="object" grabbable io3d-furniture="id:34b6ee73-187f-41a6-83ea-3fa47da384c0" position="7 0 -3" dynamic-body="mass: 2"></a-entity>
+
+      <a-entity id="holder" position="2 0 0">
+
+      </a-entity>
 
       <!-- controls -->
       <a-entity progressive-controls="objects: .object"><a-entity>
 
       <!-- environment -->
-      <!-- <a-entity environment="preset: forest"><a-entity> -->
+      <a-entity environment="preset: forest"><a-entity>
 
       <!-- colliders -->
       <a-entity visible="false" id="ground" position="0 -0.5 0" scale="50 1 50" static-body="sphereRadius:1" geometry=""></a-entity>
 
       <!-- score board -->
-      <a-entity id="scoreboard" position="0 5 -5" text-geometry="value: 000" material="color: red"></a-entity>
+      <a-entity id="scoreboard" position="0 1.7 -5" text-geometry="value: 000" material="color: red"></a-entity>
+
     </a-scene>
 
 
