@@ -10,9 +10,13 @@
     <script>
       AFRAME.registerComponent('cursor-listener', {
         init: function () {
+
           this.el.addEventListener('click', function (evt) {
-            console.log("Box triggered");
-            this.setAttribute('sound', { src: '#ada' });
+            console.log(this.id);
+            if (this.id === 'adabox') {
+              console.log("Box triggered");
+              this.setAttribute('sound', { src: '#ada' });
+            }
           })
         }
       })
@@ -26,7 +30,7 @@
         <audio id="ada" crossorigin="anonymous" src="https://ucarecdn.com/59427ee4-49d5-4983-b79b-410ec846f5f9/"></audio>
       </a-assets>
 
-      <a-box src="images/ada1.jpg" scale="1 1 0" cursor-listener sound="on: click; src: #click-sound" position="-1 2 -3" shader="flat" shadow>
+      <a-box id="adabox" src="images/ada1.jpg" scale="1 1 0" cursor-listener sound="on: click; src: #click-sound" position="-1 2 -3" shader="flat" shadow>
         <a-animation attribute="position"
                      from="-1 2 -3"
                      to="-1 2.1 -3"
