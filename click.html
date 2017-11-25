@@ -9,10 +9,12 @@
     <script>
       AFRAME.registerComponent('cursor-listener', {
         init: function () {
+          var colors = ['orange', '#4CC3D9', '#EF2D5E', '#FFC65D']
 
           this.el.addEventListener('click', function (evt) {
             console.log("Box triggered");
-            this.setAttribute('material', 'color', 'red');
+            var color = colors[Math.floor(Math.random()*colors.length)];
+            this.setAttribute('material', 'color', color);
           })
         }
       })
@@ -21,10 +23,14 @@
   </head>
   <body>
     <a-scene>
-      <a-box cursor-listener position="-1 0.5 -3" color="#4CC3D9" shadow></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
+      <a-assets>
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+      </a-assets>
+
+      <a-box cursor-listener sound="on: click; src: #click-sound" position="-1 2 -3" color="#4CC3D9" shadow></a-box>
+      <a-box cursor-listener sound="on: click; src: #click-sound" position="0 0.75 -3" color="#EF2D5E" shadow></a-box>
+      <a-box cursor-listener sound="on: click; src: #click-sound" position="1.25 1.5 -3" color="#FFC65D" shadow></a-box>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="8" color="#9eef37" shadow></a-plane>
       <a-sky color="#ECECEC"></a-sky>
 
       <a-camera>
