@@ -6,7 +6,6 @@
     <meta name="description" content="Hello, WebVR! - A-Frame">
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
-
     <script>
       AFRAME.registerComponent('cursor-listener', {
         init: function () {
@@ -63,13 +62,20 @@
         position="">
       </a-entity>
 
-
       <a-sky color="black"></a-sky>
 
       <a-camera>
         <a-cursor color="white">
         </a-cursor>
       </a-camera>
+
+      <a-entity id="cyl" position="4.5 2.5 -3" geometry="radius:0.12;height:5;primitive:cylinder" material="color:#fff9fe"></a-entity>
+      <a-entity
+        id="schild" position="5.200 4 -2.530"
+        rotation="0 -40 0" scale="1.6 0.5 0.1" geometry="primitive:box"
+        material="src:images/schild1.png;"
+        >
+      </a-entity>
 
 
     </a-scene>
