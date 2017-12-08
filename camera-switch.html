@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
+
+    <script>
+      AFRAME.registerComponent('cursor-listener', {
+        init: function () {
+
+          this.el.addEventListener('click', function (evt) {
+            console.log("Box triggered");
+            var secondCameraEl = document.querySelector('#secondCamera');
+            secondCameraEl.setAttribute('camera', 'active', true);
+          })
+        }
+      })
+    </script>
+
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+      </a-assets>
+
+      <a-box cursor-listener sound="on: click; src: #click-sound" position="-1 2 -3" color="#4CC3D9" shadow>
+        <a-animation attribute="position"
+                     from="-1 2 -3"
+                     to="-1 2.1 -3"
+                     repeat="indefinite"
+                     direction="alternate">
+        </a-animation>
+      </a-box>
+
+      <a-box cursor-listener sound="on: click; src: #click-sound" position="0 0.75 -3" color="#EF2D5E" shadow>
+        <a-animation attribute="position"
+                     from="0 0.85 -3"
+                     to="0 0.75 -3"
+                     repeat="indefinite"
+                     direction="alternate">
+        </a-animation>
+      </a-box>
+
+      <a-box cursor-listener sound="on: click; src: #click-sound" position="1.25 1.5 -3" color="#FFC65D" shadow>
+      </a-box>
+
+      <a-box
+        cursor-listener=""
+        sound="on:click;src:https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"
+        position="1.6 1.1 -4"
+        color="#4CC3D9"
+        shadow="" material="color:#862aff">
+        <a-animation attribute="position" from="0.6 1.1 -4" to="0.6 1.2 -4.0" repeat="indefinite" direction="alternate">
+        </a-animation>
+      </a-box>
+
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#9eef37" shadow></a-plane>
+      <a-sky color="black"></a-sky>
+
+
+      <a-entity position="0 0 0">
+        <a-camera id='firstCamera'>
+          <a-cursor color="white">
+          </a-cursor>
+        </a-camera>
+      </a-entity>
+
+      <a-entity position="2 0 -5">
+        <a-camera id='secondCamera' active="false">
+          <a-cursor color="white">
+          </a-cursor>
+        </a-camera>
+      </a-entity>
+
+
+    </a-scene>
+  </body>
+</html>
