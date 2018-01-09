@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Prototype with Audio</title>
     <meta name="description" content="Hello, WebVR! - A-Frame">
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
     <script>
       AFRAME.registerComponent('cursor-listener', {
@@ -64,10 +64,12 @@
 
       <a-sky color="black"></a-sky>
 
-      <a-camera>
-        <a-cursor color="white">
-        </a-cursor>
-      </a-camera>
+      <a-entity camera="userHeight: 1.6" position="0 0 0">
+        <a-camera>
+          <a-cursor color="white">
+          </a-cursor>
+        </a-camera>
+      </a-entity>
 
     </a-scene>
   </body>
